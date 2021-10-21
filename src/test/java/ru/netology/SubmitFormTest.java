@@ -21,7 +21,7 @@ class CardOrderTestSelenium  {
 
     @BeforeAll
     static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
 
 
 

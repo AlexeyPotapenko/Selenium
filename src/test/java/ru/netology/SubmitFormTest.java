@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-class CallbackTest {
+class CardOrderTestSelenium  {
     private WebDriver driver;
 
 
@@ -34,7 +34,6 @@ class CallbackTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver = new ChromeDriver();
 
     }
 

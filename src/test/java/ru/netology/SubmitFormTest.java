@@ -20,23 +20,24 @@ class CallbackTest {
 
 
 
+
     @BeforeAll
     static void setUpAll() {
         WebDriverManager.chromedriver().setup();
+
 
 
     }
 
     @BeforeEach
     void setUp() {
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-
-
+        driver = new ChromeDriver();
 
     }
 

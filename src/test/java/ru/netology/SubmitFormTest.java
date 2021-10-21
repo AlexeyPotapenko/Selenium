@@ -19,19 +19,16 @@ class CallbackTest {
     private WebDriver driver;
 
 
-
-
     @BeforeAll
     static void setUpAll() {
         WebDriverManager.chromedriver().setup();
-
 
 
     }
 
     @BeforeEach
     void setUp() {
-        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");

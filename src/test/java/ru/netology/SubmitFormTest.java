@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class CardOrderTestSelenium  {
     private WebDriver driver;
 
@@ -47,15 +49,15 @@ class CardOrderTestSelenium  {
     @Test
     void shouldTestV1() {
         driver.get("http://localhost:9999");
-        List<WebElement> inputField = driver.findElements(By.className("input__control"));
-        inputField.get(0).sendKeys("Алексей");
-        inputField.get(1).sendKeys("+79174725035");
+
+        driver.findElement(By.cssSelector("[type='text']")).sendKeys("Алексей");
+        driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79174725035");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.tagName("Button")).click();
 
-        String actualMessage = driver.findElement(By.className("paragraph")).getText();
-        String expectedMessage = "  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        Assertions.assertEquals(expectedMessage, actualMessage);
+        String actualMessage = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText();
+        String expectedMessage = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
+        assertEquals(expectedMessage, actualMessage.strip());
 
     }
 
